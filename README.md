@@ -3,7 +3,7 @@ Docker based package builder for rancid-git
 This will build a .deb for rancid-git installed into /opt/rancid-git
 
 ```
-$ docker build -f Dockerfile.trusty -t rancid-git-builder/trusty .
+$ docker build -t rancid-git-builder/trusty .
 $ docker run --rm -t -v $(pwd)/pkg:/pkg rancid-git-builder/trusty
 ...
 ...
