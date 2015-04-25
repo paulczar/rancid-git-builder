@@ -1,0 +1,17 @@
+FROM ubuntu:trusty
+
+MAINTAINER Paul Czarkowski
+
+VOLUME /pkg
+
+RUN apt-get -y update && apt-get install -y wget expect curl automake vim build-essential ruby-dev && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN gem install fpm --no-ri --no-rdoc
+
+ENV DISTRO trusty
+
+ADD build.sh /tmp/build.sh
+
+RUN chmod +x /tmp/build.sh
+
+CMD /tmp/build.sh
