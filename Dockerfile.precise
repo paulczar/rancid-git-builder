@@ -4,7 +4,10 @@ MAINTAINER Paul Czarkowski
 
 VOLUME /pkg
 
-RUN apt-get -y update && apt-get install -y wget iputils-ping expect curl automake vim build-essential ruby-dev rubygems && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get -y update && apt-get install -y wget iputils-ping expect automake curl automake vim build-essential ruby-dev rubygems && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# rancid-git requires automake 1.14 even on precise
+RUN wget -q -O /tmp/automake.deb http://mirrors.kernel.org/ubuntu/pool/main/a/automake-1.14/automake_1.14.1-2ubuntu1_all.deb && dpkg -i /tmp/automake.deb
 
 RUN gem install fpm --no-ri --no-rdoc
 

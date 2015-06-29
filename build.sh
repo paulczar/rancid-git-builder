@@ -8,7 +8,7 @@ curl -sSL https://github.com/dotwaffle/rancid-git/archive/${VERSION}.tar.gz | ta
 
 cd rancid-git-${VERSION}
 
-./configure --prefix=/opt/rancid-git --with-git 
+./configure --prefix=/opt/rancid-git --with-git
 
 make install
 
